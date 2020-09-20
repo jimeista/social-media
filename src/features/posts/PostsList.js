@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { TimeAgo } from './TimeAgo'
 import { ReactionButtons } from './ReactionButtons'
+import { PostAuthor } from './PostAuthor'
 
 export const PostsList = () => {
   const posts = useSelector((state) => state.posts)
@@ -16,9 +17,11 @@ export const PostsList = () => {
     orderedPosts.map((post) => (
       <article key={post.id}>
         <h3>{post.title}</h3>
+        <div>
+          <PostAuthor userId={post.user} />
+          <TimeAgo timestamp={post.date} />
+        </div>
         <p>{post.content.substring(0, 100)}</p>
-        <p>{post.author}</p>
-        <TimeAgo timestamp={post.date} /> <br />
         <ReactionButtons post={post} />
         <Link to={`/posts/${post.id}`} className='button muted-button'>
           View Post

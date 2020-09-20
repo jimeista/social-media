@@ -24,9 +24,11 @@ export const SinglePost = ({ match }) => {
     <section>
       <article>
         <h1>{post.title}</h1>
+        <div>
+          <PostAuthor userId={post.user} />
+          <TimeAgo timestamp={post.date} />
+        </div>
         <p>{post.content}</p>
-        <PostAuthor userId={post.user} />
-        <TimeAgo timestamp={post.date} />
       </article>
       <ReactionButtons post={post} />
       <Link to={`/edit/${post.id}`}>Edit</Link>
