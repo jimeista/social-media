@@ -1,17 +1,35 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import store from './app/store'
-import { Counter } from './features/counter/Counter'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
+
+import { PostsList } from './features/posts/PostsList'
+import { AddPost } from './features/posts/AddPost'
+
 import './App.css'
 
 function App() {
   return (
-    <Provider store={store}>
+    <Router>
       <div className='App'>
-        <h1>React Redux</h1>
-        <Counter />
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={() => (
+              <React.Fragment>
+                <AddPost />
+                <PostsList />
+              </React.Fragment>
+            )}
+          />
+          <Redirect to='/' />
+        </Switch>
       </div>
-    </Provider>
+    </Router>
   )
 }
 
