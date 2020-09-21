@@ -6,6 +6,12 @@ import store from './app/store'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
+import { fetchUsers } from './features/users/usersSlice'
+
+import './api/server'
+
+store.dispatch(fetchUsers())
+
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>

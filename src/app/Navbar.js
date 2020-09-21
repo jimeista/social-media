@@ -1,11 +1,19 @@
 import React from 'react'
+
 import { Link } from 'react-router-dom'
 
 export const Navbar = () => {
   return (
-    <div className='navbar'>
-      <h1>Social Media</h1>
-      <Link to='/'>Posts</Link>
-    </div>
+    <nav>
+      <section>
+        <h1>Social Media</h1>
+
+        <div className='navContent'>
+          <div className='navLinks'>
+            <Link to='/'>Posts</Link>
+          </div>
+        </div>
+      </section>
+    </nav>
   )
 }
